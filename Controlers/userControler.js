@@ -41,3 +41,19 @@ exports.addUser = (req, res) => {
         res.redirect('/');
     });
 };
+
+//Exibir usuarios antes de deletar
+exports.getdeleteByUser = (req, res) => {
+    const userId = req.params.id;
+    User.getUserById(userId, (user) => {
+        res.render('dell', { user });
+    });
+};
+
+//Deletar o usuário
+exports.deleteUser = (req, res) => {
+    const userId = req.params.id;
+    User.deleteUser(userId, () => {
+        res.redirect('/');
+    });
+};

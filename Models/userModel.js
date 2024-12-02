@@ -39,6 +39,14 @@ const User = {
             callback(result);
         });
 
+    },
+
+    deleteUser: (id, callback) => {
+        const sql = 'DELETE FROM users WHERE id = ?';
+        db.query(sql, [id], (err, result) => {
+            if (err) throw err;
+            callback(result);
+        });
     }
     
 };

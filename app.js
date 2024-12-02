@@ -18,11 +18,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //Rotas
 app.get('/', userControler.getAllUsers);
-
-app.get('/edit/:id', userControler.getUserById);
-app.post('/edit/:id', userControler.updateUser);
 app.get('/add', (req, res) => res.render('add'));
 app.post('/add', userControler.addUser);
+app.get('/edit/:id', userControler.getUserById);
+app.post('/edit/:id', userControler.updateUser);
+app.get('/dell/:id', userControler.getdeleteByUser);
+app.post('/dell/:id', userControler.deleteUser);
 
 
 //Iniciar o servidor
